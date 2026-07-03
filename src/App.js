@@ -1,14 +1,12 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer,
   RadarChart, Radar, PolarGrid, PolarAngleAxis,
-  LineChart, Line, CartesianGrid, Legend,
-  AreaChart, Area, Cell, PieChart, Pie
+  LineChart, Line, CartesianGrid, Legend, Cell, PieChart, Pie
 } from "recharts";
 
 /* ── MOCK INTELLIGENCE ENGINE (mirrors backend logic) ─────────────────────── */
 const EMP_SCORE = { Salaried: 8, 'Self-Employed': 0 };
-const PURPOSE_RATE = { Home: -0.5, Car: 0, Education: -0.25, Business: 0.5, Personal: 1 };
 
 function computeAll(d) {
   const dti = Math.min(100, (d.existing_emis / Math.max(d.monthly_income, 1)) * 100);
@@ -839,8 +837,8 @@ function Chatbot({lastResult, formData}) {
           {/* Quick suggestions */}
           <div style={{padding:'8px 12px',borderTop:`1px solid ${C.border}`,display:'flex',gap:6,overflowX:'auto'}}>
             {suggestions.map(s=>(
-              <button key={s} onClick={()=>{setInp(s);setTimeout(()=>{const fake={preventDefault:()=>{}};send();},0);}} style={{flexShrink:0,background:`${C.indigo}20`,color:C.muted2,border:`1px solid ${C.border}`,borderRadius:99,padding:'4px 12px',fontSize:10,fontWeight:600,cursor:'pointer',whiteSpace:'nowrap'}}
-                onClick={()=>{setMsgs(p=>[...p,{role:'user',text:s},{role:'bot',text:respond(s)}]);setTimeout(()=>endRef.current?.scrollIntoView({behavior:'smooth'}),100);}}>
+              <button key={s} onClick={()=>{setInp(s);setTimeout(()=> { send();},0);
+                setMsgs(p=>[...p,{role:'user',text:s},{role:'bot',text:respond(s)}]);setTimeout(()=>endRef.current?.scrollIntoView({behavior:'smooth'}),100);}}>
                 {s}
               </button>
             ))}
@@ -888,7 +886,7 @@ export default function App() {
       <div style={{position:'fixed',top:0,left:'50%',transform:'translateX(-50%)',width:800,height:400,background:`radial-gradient(ellipse,${C.indigo}10 0%,transparent 65%)`,pointerEvents:'none',zIndex:0}}/>
 
       {/* Nav */}
-      <nav style={{position:'sticky',top:0,zIndex:100,background:`${C.surface}d8`,backdropFilter:'blur(24px)',borderBottom:`1px solid ${C.border}`,padding:'0 32px',position:'sticky'}}>
+      <nav style={{position:'sticky',top:0,zIndex:100,background:`${C.surface}d8`,backdropFilter:'blur(24px)',borderBottom:`1px solid ${C.border}`,padding:'0 32px'}}>
         <div style={{maxWidth:1100,margin:'0 auto',display:'flex',alignItems:'center',height:66,gap:32}}>
           <div onClick={()=>setPage('home')} style={{cursor:'pointer',display:'flex',alignItems:'center',gap:10}}>
             <div style={{width:36,height:36,borderRadius:10,background:`linear-gradient(135deg,${C.indigo},${C.cyan})`,display:'flex',alignItems:'center',justifyContent:'center',fontSize:17}}>💎</div>
