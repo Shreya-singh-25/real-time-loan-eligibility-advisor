@@ -10,6 +10,60 @@ A modern React-based web application that predicts loan eligibility using financ
 
 🔗 https://github.com/Shreya-singh-25/real-time-loan-eligibility-advisor
 
+---
+
+## 📁 Project Structure
+
+```text
+real-time-loan-eligibility-advisor/
+│
+├── public/
+│   ├── index.html
+│   ├── manifest.json
+│   └── robots.txt
+│
+├── src/
+│   ├── App.js              # Main application component
+│   ├── App.css             # Main styling
+│   ├── index.js            # React entry point
+│   ├── index.css           # Global styles
+│   ├── App.test.js         # Unit tests
+│   └── reportWebVitals.js  # Performance metrics (optional)
+│
+├── loan_data.csv           # Loan dataset
+├── package.json            # Project dependencies
+├── package-lock.json       # Dependency lock file
+├── .gitignore              # Ignored files
+└── README.md               # Project documentation
+```
+
+---
+
+## 🏗️ Application Flow
+
+```text
+                User
+                  │
+                  ▼
+         Loan Application Form
+                  │
+                  ▼
+       Input Validation & Processing
+                  │
+                  ▼
+     Loan Eligibility Prediction Engine
+                  │
+         ┌────────┴────────┐
+         ▼                 ▼
+ Interactive Dashboard   AI Chatbot
+         │                 │
+         └────────┬────────┘
+                  ▼
+            Eligibility Result
+```
+
+---
+
 ## ✨ Features
 
 - ✅ Real-Time Loan Eligibility Prediction
@@ -19,6 +73,8 @@ A modern React-based web application that predicts loan eligibility using financ
 - 🤖 AI Chatbot for Loan Assistance
 - 📱 Responsive User Interface
 - ⚡ Fast and Modern React Application
+
+---
 
 ## 🛠 Tech Stack
 
@@ -30,18 +86,29 @@ A modern React-based web application that predicts loan eligibility using financ
 - GitHub
 - Vercel
 
+---
+
 ## ⚙️ Installation
 
 ```bash
 git clone https://github.com/Shreya-singh-25/real-time-loan-eligibility-advisor.git
+
 cd real-time-loan-eligibility-advisor
+
 npm install
+
 npm start
 ```
+
+---
 
 ## 🚀 Deployment
 
 The application is deployed on **Vercel**.
 
-**Live Website:**  
+🌐 Live Website:
+
 https://real-time-loan-eligibility-advisor-xdml-33nyf5dgm-shreya30.vercel.app/
+
+---
+https://github.com/Shreya-singh-25
